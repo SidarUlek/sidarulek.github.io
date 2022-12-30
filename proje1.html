@@ -6,17 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="wiewport" content="width=device-width, inital-scale=1.0">
     
-    <title>Penaltı Simülasyon Oyunu</title>
+    <title>Sidar Ülek Sitesi</title>
     <style>
         a:hover {
             background-color: black;
             border-radius: 15px;
             transition: .5s;
         }
-        
+        #backgroundfln{
+            background-repeat: no-repeat ;
+            background-attachment: fixed;
+            background: url(background.jpg);
+            background-size: cover;
+            background-color: #464646;
+            width:100%;
+            height:100%;
+            color: white;
+        }
         </style>
 </head>
-<body>
+<body id="backgroundfln">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="index.html"></a>
@@ -39,7 +48,7 @@
         </div>
       </nav>
       <div class="container my-2 p-3">
-        <div class="card">
+        <div class="card" style="background: none; border-color: white;">
             <h5 class="card-header" style="text-align: center">Oyun Dosyaları Ve Readme Bölümü</h5>
             <div class="card-body">
               <p class="card-text" style="text-align: center">Proje dosyaları ve dosyaları nasıl çalıştıracağınızın ayrıntılı bir şekilde anlatıldığı readme.md dosyasının bulunduğu sayfaya gitmek için aşağıdaki butona tıklayın</p>
@@ -97,14 +106,14 @@
         <p> <a href=#degiskenveyon>Kaleci hareketleri ile alakalı bölüm</a>de yönleri sayısal değerlere eşitlediğimi belirtmiştim. Bu eşitleme 
             işlemi için ilk başta buttonlara "Sağ", "Sol" ve "Orta" değerleri vererek başladım
         </p>
-        <p><textarea id="embed-video-code" rows="4" style="width: 370px; height: 90px; background-color:rgb(163, 179, 179);"  >
+        <p><textarea id="embed-video-code" rows="4" style="width: 370px; height: 90px; background-color:darkgrey;"  >
 <input type="submit" name="sol" value="Sol">
 <input type="submit" name="orta" value="Orta">
 <input type="submit" name="sag" value="Sağ"></textarea></p>
         <p> Daha sonrasında bu button değerlerini tanımladığım oyuncu değişkenine eşitledim. Oyuncu değişkenini de kaleci değişkeni gibi
             "Sağ", "Sol" ve "Orta" değerlerine eşit olan "1", "2" ve "3" sayı değerlerine eşitledim.
         </p>
-        <p><textarea id="embed-video-code" rows="4" style="width: 230px; height:390px; background-color:rgb(163, 179, 179);"  >
+        <p><textarea id="embed-video-code" rows="4" style="width: 230px; height:390px; background-color:darkgrey;"  >
 if ($_POST) {
     $sol = @$_POST["sol"];
     $orta = @$_POST["orta"];
@@ -133,7 +142,7 @@ if ($sol) {
                 <li>Ekrana kalecinin kurtarış yaptığı yazılır ve kullanıcıya tekrar denemesi gerektiği söylenir</li>
                 <li>Ekrana durumun resmi getirilir</li>
             </ul>  
-        <p><textarea id="embed-video-code" rows="4" style="width: 1070px; height: 130px; background-color:rgb(163, 179, 179);"  >
+        <p><textarea id="embed-video-code" rows="4" style="width: 83%; height: 130px; background-color:darkgrey;"  >
 if($kaleci==1 && $oyuncu==1) {
     #Kaleci Sola Top Sola
     echo '<p><b><center>Kaleci penaltıyı çıkardı, İnanılmaz bir kurtarış! Bir sonraki atışı kullanmak için tekrardan köşe seçmelisin! </center></p>';
@@ -144,7 +153,7 @@ if($kaleci==1 && $oyuncu==1) {
                 <li>Ekrana tercihin gol ile sonuçlandığı yazıldığı ve kullanıcıya tekrar denemesi gerektiği söylenir</li>
                 <li>Ekrana durumun resmi getirilir</li>
             </ul>  
-<p><textarea id="embed-video-code" rows="4" style="width: 1070px; height: 130px; background-color:rgb(163, 179, 179);"  >
+<p><textarea id="embed-video-code" rows="4" style="width: 83%; height: 130px; background-color:darkgrey;"  >
 elseif ($kaleci==1 && $oyuncu==2) {
     #Kaleci Sola Top Ortaya
     echo '<p><b><center>GOOOLL! Kaleciyle Top Ayrı Köşelerde... Bir sonraki atışı kullanmak için tekrardan köşe seçmelisin! </center></p>';
@@ -155,7 +164,7 @@ elseif ($kaleci==1 && $oyuncu==2) {
                     <li>Ekrana tercihin gol ile sonuçlandığı yazıldığı ve kullanıcıya tekrar denemesi gerektiği söylenir</li>
                     <li>Ekrana durumun resmi getirilir</li>
                 </ul> 
-<p><textarea id="embed-video-code" rows="4" style="width: 1070px; height: 130px; background-color:rgb(163, 179, 179);"  >
+<p><textarea id="embed-video-code" rows="4" style="width: 83%; height: 130px; background-color:darkgrey;"  >
 elseif ($kaleci==1 && $oyuncu==3) {
     #Kaleci Sola Top Sağa
     echo '<p><b><center>GOOOLL! Kaleciyle Top Ayrı Köşelerde... Bir sonraki atışı kullanmak için tekrardan köşe seçmelisin! </center></p>';
@@ -169,14 +178,14 @@ elseif ($kaleci==1 && $oyuncu==3) {
         <p>Öncelikle ekranda bulunacak resimlerin de yeşil olacağı bilindiği için arka planı yeşil renkte yapmayı tercih ettim.
             Bunu da style tagini kullanarak yaptım.
         </p>
-        <p><textarea id="embed-video-code" rows="4" style="width: 300px; height: 100px; background-color:rgb(163, 179, 179);"  >
+        <p><textarea id="embed-video-code" rows="4" style="width: 300px; height: 100px; background-color:darkgrey;"  >
 <style> 
      body {background:green;}
 </style></textarea></p>
         <p>Daha sonra üst tarafa oyunun logosunu eklemek istedim. Logoyu penaltının başlangıç pozisyonunu gösterecek şekilde tasarladım.
             Logoyu yapıp ekleme kısmını <a href=#resimekleme>Durum Resimlerini Eklediğim Kısım</a>daki gibi ekledim
         </p>
-        <p><textarea id="embed-video-code" rows="4" style="width: 850px; height: 40px; background-color:rgb(163, 179, 179);"  >
+        <p><textarea id="embed-video-code" rows="4" style="width: 850px; height: 40px; background-color:darkgrey;"  >
 echo '<p><center><img src="https://i.hizliresim.com/87txvfi.PNG" width="600" height="275" ></center></p>';</textarea></p>
         
 
@@ -191,14 +200,14 @@ echo '<p><center><img src="https://i.hizliresim.com/87txvfi.PNG" width="600" hei
     
     
     
-    <div class="card container my-2 p-3">
-        <div class="card-header">
-        <h1>Oyun Php Kodları</h1>  
+    <div class="card container my-2 p-3" style="background: none; border-color: white;">
+        <div class="card-header" style="background-color:white;">
+        <h1 style="color: black;">Oyun Php Kodları</h1>  
         </div>
     <p></p>
 
     <div style="text-align: center" >
-    <p><textarea id="embed-video-code" rows="4" style="width: 850px; height: 2300px; background-color:rgb(163, 179, 179);"  ><?php   
+    <p><textarea id="embed-video-code" rows="4" style="width: 75%; height: 2100px; background-color:darkgray;"  ><?php   
         echo '<p><center><img src="https://i.hizliresim.com/87txvfi.PNG" width="600" height="275" ></center></p>';
         $kaleci = rand(1,3);
         
