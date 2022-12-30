@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="wiewport" content="width=device-width, inital-scale=1.0">
+    
+    <title>Penaltı Simülasyon Oyunu</title>
+    <style>
+        a:hover {
+            background-color: black;
+            border-radius: 15px;
+            transition: .5s;
+        }
+        
+        </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="index.html">Ana Sayfa</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="proje1.html">PHP ile Penaltı Simülasyon Oyunu</a>
+              </li>
+            </ul>
+            <span class="navbar-text">
+              Sidar Ülek
+            </span>
+          </div>
+        </div>
+      </nav>
+      <div class="container my-2 p-3">
+        <div class="card">
+            <h5 class="card-header" style="text-align: center">Oyun Dosyaları Ve Readme Bölümü</h5>
+            <div class="card-body">
+              <p class="card-text" style="text-align: center">Proje dosyaları ve dosyaları nasıl çalıştıracağınızın ayrıntılı bir şekilde anlatıldığı readme.md dosyasının bulunduğu sayfaya gitmek için aşağıdaki butona tıklayın</p>
+              <center><a href="https://github.com/SidarUlek/php-penalti-simulator" class="btn btn-primary" target="_blank">Tıklayınız</a></center>
+            </div>
+          </div>
+        <p class="lead "> <h1>OYUNUN AMACI NEDİR?</h1> </p>
+        <p>Oyunumuza baktığımızda aslında bir şans oyunu olduğunu gözlemleriz çünkü kalecinin hareketleri tecrübeler ile değil 
+            yazdığımız kodlarda da görebileceğiniz gibi rastgele şekilde oluşur. Kaleci rastgele bir köşe belirler ve o noktaya hareketlenir 
+            kullanıcı ise ona sunduğumuz "Sağ", "Sol" veya "Orta" seçeneklerinden birini seçer. Eğer kalecinin hareketlendiği seçeneği 
+            tercih ederse kaleci topu kurtaracaktır, tercihini farklı bir seçenekten yana kullanır ise gol olacaktır. Oynayan kişinin 
+            amacı gol atmaktır.
+        </p>
+    </div>
+    <a name="degiskenveyon"></a>
+    <div class="container my-2 p-3">
+        <p class="lead"> <h1>KALECİNİN HAREKETLERİ NASIL BELİRLENİYOR?</h1> </p>
+        <p>Tanımladığım kaleci değişkeni 1 ile 3 arasında değer almaktadır. Bu değerleri tercih edilen köşeler ile eşitleriz.</p>
+        <table  style="text-align: center" >
+            <tr>
+                <td>Değer</td>
+                <td>  ->  </td>
+                <td>Yön</td>
+            </tr>
+     
+            <tr>
+                <td>1</td>
+                <td>  ->  </td>
+                <td>Sol</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>  ->  </td>
+                <td>Orta</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>  ->  </td>
+                <td>Sağ</td>
+            </tr>
+    </table>
+    <p>Şeklinde eşitlenir.</p>
+    </div>
+    <a name="resimekleme"></a>
+    <div class="container my-2 p-3">
+        <p class="lead "> <h1>SEÇTİĞİMİZ DURUMLARIN GÖRÜNTÜLERİ NASIL EKRANDA GÖRÜNÜYOR?</h1> </p>
+        <p> Oyunda karşımıza çıkabilecek 9 durum var. Seçebileceğiniz 3 seçeneğin her birine karşılık 3 durum. Bu durumların her birine
+        karşılık gelen resmi paint uygulamasıyla bizzat kendim yaptım ve <a href="https://www.hizliresim.com/" target="_blank">hizliresim.com</a> internet 
+        sitesine yükledim daha sonrasında bu resimleri <code>&lt;img src="resimadresi" width="800" height="275"&gt;</code> tagi ile boyutunu
+        da belirleyerek sitemize ekledim. 
+        </p>
+    </div>
+    <div class="container my-2 p-3">
+        <p class="lead "> <h1>BUTTONLARA NASIL DEĞER VERDİN?</h1> </p>
+        <p> <a href=#degiskenveyon>Kaleci hareketleri ile alakalı bölüm</a>de yönleri sayısal değerlere eşitlediğimi belirtmiştim. Bu eşitleme 
+            işlemi için ilk başta buttonlara "Sağ", "Sol" ve "Orta" değerleri vererek başladım
+        </p>
+        <p><textarea id="embed-video-code" rows="4" style="width: 370px; height: 90px; background-color:rgb(163, 179, 179);"  >
+<input type="submit" name="sol" value="Sol">
+<input type="submit" name="orta" value="Orta">
+<input type="submit" name="sag" value="Sağ"></textarea></p>
+        <p> Daha sonrasında bu button değerlerini tanımladığım oyuncu değişkenine eşitledim. Oyuncu değişkenini de kaleci değişkeni gibi
+            "Sağ", "Sol" ve "Orta" değerlerine eşit olan "1", "2" ve "3" sayı değerlerine eşitledim.
+        </p>
+        <p><textarea id="embed-video-code" rows="4" style="width: 230px; height:390px; background-color:rgb(163, 179, 179);"  >
+if ($_POST) {
+    $sol = @$_POST["sol"];
+    $orta = @$_POST["orta"];
+    $sag = @$_POST["sag"];
+            
+if ($sol) {
+    //sol
+    $oyuncu = 1;
+} elseif ($orta) {
+    //orta
+    $oyuncu = 2;
+} elseif ($sag) {
+    //sağ
+    $oyuncu = 3;
+}</textarea></p>
+<p> Bunun sebebi durumların oyuncu değişkeni ile kaleci değişkeni arasındaki farklılıktan ortaya çıkması.</p>
+    </div>
+    <div class="container my-2 p-3">
+        <p class="lead "> <h1>DURUMLARI NASIL TANIMLADIN?</h1> </p>
+        <p> Oyunda karşınıza çıkabilecek 9 durum olduğunu söylemiştim. Bu durumları tanımlarken kalecinin tercih ettiği her köşe
+        başına 3 farklı durum oluşabileceğini hesaplıyoruz. Kalecinin "Sol" yani sayısal değer olarak "1"seçeneğine hareketleneceği
+        durumları hesaplayalım bunlar:
+        </p>
+        <h3 style="color: grey;">Kaleci Sola Hareketlenir Ve Oyuncu Topu Sola Gönderir(Gol Olmaz)</h3>
+            <ul>
+                <li>Ekrana kalecinin kurtarış yaptığı yazılır ve kullanıcıya tekrar denemesi gerektiği söylenir</li>
+                <li>Ekrana durumun resmi getirilir</li>
+            </ul>  
+        <p><textarea id="embed-video-code" rows="4" style="width: 1070px; height: 130px; background-color:rgb(163, 179, 179);"  >
+if($kaleci==1 && $oyuncu==1) {
+    #Kaleci Sola Top Sola
+    echo '<p><b><center>Kaleci penaltıyı çıkardı, İnanılmaz bir kurtarış! Bir sonraki atışı kullanmak için tekrardan köşe seçmelisin! </center></p>';
+    echo '<p><center><img src="https://i.hizliresim.com/3gspz8g.png" width="800" height="275" ></center></p>';
+}</textarea> 
+        <h3 style="color: grey;">Kaleci Sola Hareketlenir Ve Oyuncu Topu Ortaya Gönderir(Gol Olur)</h3>
+            <ul>
+                <li>Ekrana tercihin gol ile sonuçlandığı yazıldığı ve kullanıcıya tekrar denemesi gerektiği söylenir</li>
+                <li>Ekrana durumun resmi getirilir</li>
+            </ul>  
+<p><textarea id="embed-video-code" rows="4" style="width: 1070px; height: 130px; background-color:rgb(163, 179, 179);"  >
+elseif ($kaleci==1 && $oyuncu==2) {
+    #Kaleci Sola Top Ortaya
+    echo '<p><b><center>GOOOLL! Kaleciyle Top Ayrı Köşelerde... Bir sonraki atışı kullanmak için tekrardan köşe seçmelisin! </center></p>';
+    echo '<p><center><img src="https://i.hizliresim.com/dq36sux.png" width="800" height="275" ></center></p>';
+}</textarea>
+            <h3 style="color: grey;">Kaleci Sola Hareketlenir Ve Oyuncu Sağa Ortaya Gönderir(Gol Olur)</h3>
+                <ul>
+                    <li>Ekrana tercihin gol ile sonuçlandığı yazıldığı ve kullanıcıya tekrar denemesi gerektiği söylenir</li>
+                    <li>Ekrana durumun resmi getirilir</li>
+                </ul> 
+<p><textarea id="embed-video-code" rows="4" style="width: 1070px; height: 130px; background-color:rgb(163, 179, 179);"  >
+elseif ($kaleci==1 && $oyuncu==3) {
+    #Kaleci Sola Top Sağa
+    echo '<p><b><center>GOOOLL! Kaleciyle Top Ayrı Köşelerde... Bir sonraki atışı kullanmak için tekrardan köşe seçmelisin! </center></p>';
+    echo '<p><center><img src="https://i.hizliresim.com/5xlupdl.png" width="800" height="275" ></center></p>';
+}</textarea>
+        
+        <p> Bu şekilde kalecinin "Orta" ve "Sağ" seçeneklerine hareketleneceği durumları da ekleyerek durumları tanımlamış oluyorum.</p>
+    </div>
+    <div class="container my-2 p-3">
+        <p class="lead "> <h1>OYUN SİTESİNİN DİZAYNI NASIL YAPILDI?</h1> </p>
+        <p>Öncelikle ekranda bulunacak resimlerin de yeşil olacağı bilindiği için arka planı yeşil renkte yapmayı tercih ettim.
+            Bunu da style tagini kullanarak yaptım.
+        </p>
+        <p><textarea id="embed-video-code" rows="4" style="width: 300px; height: 100px; background-color:rgb(163, 179, 179);"  >
+<style> 
+     body {background:green;}
+</style></textarea></p>
+        <p>Daha sonra üst tarafa oyunun logosunu eklemek istedim. Logoyu penaltının başlangıç pozisyonunu gösterecek şekilde tasarladım.
+            Logoyu yapıp ekleme kısmını <a href=#resimekleme>Durum Resimlerini Eklediğim Kısım</a>daki gibi ekledim
+        </p>
+        <p><textarea id="embed-video-code" rows="4" style="width: 850px; height: 40px; background-color:rgb(163, 179, 179);"  >
+echo '<p><center><img src="https://i.hizliresim.com/87txvfi.PNG" width="600" height="275" ></center></p>';</textarea></p>
+        
+
+    </div>
+
+
+
+
+
+
+    
+    
+    
+    
+    <div class="card container my-2 p-3">
+        <div class="card-header">
+        <h1>Oyun Php Kodları</h1>  
+        </div>
+    <p></p>
+
+    <div style="text-align: center" >
+    <p><textarea id="embed-video-code" rows="4" style="width: 850px; height: 2300px; background-color:rgb(163, 179, 179);"  ><?php   
+        echo '<p><center><img src="https://i.hizliresim.com/87txvfi.PNG" width="600" height="275" ></center></p>';
+        $kaleci = rand(1,3);
+        
+        if ($_POST) {
+            $sol = @$_POST["sol"];
+            $orta = @$_POST["orta"];
+            $sag = @$_POST["sag"];
+        
+        if ($sol) {
+            //sol
+            $oyuncu = 1;
+        } elseif ($orta) {
+            //orta
+            $oyuncu = 2;
+        } elseif ($sag) {
+            //sağ
+            $oyuncu = 3;
+        }
+    
+        if($kaleci==1 && $oyuncu==1) {
+            #Kaleci Sola Top Sola
+            echo '<p><b><center>Kaleci penaltıyı çıkardı, İnanılmaz bir kurtarış! Bir sonraki atışı kullanmak için tekrardan köşe seçmelisin! </center></p>';
+            echo '<p><center><img src="https://i.hizliresim.com/3gspz8g.png" width="800" height="275" ></center></p>';
+        } elseif ($kaleci==1 && $oyuncu==2) {
+            #Kaleci Sola Top Ortaya
+            echo '<p><b><center>GOOOLL! Kaleciyle Top Ayrı Köşelerde... Bir sonraki atışı kullanmak için tekrardan köşe seçmelisin! </center></p>';
+            echo '<p><center><img src="https://i.hizliresim.com/dq36sux.png" width="800" height="275" ></center></p>';
+        } elseif ($kaleci==1 && $oyuncu==3) {
+            #Kaleci Sola Top Sağa
+            echo '<p><b><center>GOOOLL! Kaleciyle Top Ayrı Köşelerde... Bir sonraki atışı kullanmak için tekrardan köşe seçmelisin! </center></p>';
+            echo '<p><center><img src="https://i.hizliresim.com/5xlupdl.png" width="800" height="275" ></center></p>';
+        }
+    
+        if($kaleci==2 && $oyuncu==2) {
+            #Kaleci Ortada Top Ortaya
+            echo '<p><b><center>Kaleci penaltıyı çıkardı, İnanılmaz bir kurtarış! Bir sonraki atışı kullanmak için tekrardan köşe seçmelisin! </center></p>';
+            echo '<p><center><img src="https://i.hizliresim.com/4229r05.png" width="800" height="275" ></center></p>';
+            
+        } elseif ($kaleci==2 && $oyuncu==1) {
+            #Kaleci Ortada Top Sola
+            echo '<p><b><center>GOOOLL! Kaleciyle Top Ayrı Köşelerde... Bir sonraki atışı kullanmak için tekrardan köşe seçmelisin! </center></p>';
+            echo '<p><center><img src="https://i.hizliresim.com/e3hrs2a.png" width="800" height="275" ></center></p>';
+        } elseif ($kaleci==2 && $oyuncu==3) {
+            #Kaleci Ortada Top Sağa
+            echo '<p><b><center>GOOOLL! Kaleciyle Top Ayrı Köşelerde... Bir sonraki atışı kullanmak için tekrardan köşe seçmelisin! </center></p>';
+            echo '<p><center><img src="https://i.hizliresim.com/si2cv5o.png" width="800" height="275" ></center></p>';
+        }
+    
+        if($kaleci==3 && $oyuncu==3) {
+            #Kaleci Sağda Top SAğda
+            echo '<p><b><center>Kaleci penaltıyı çıkardı, İnanılmaz bir kurtarış! Bir sonraki atışı kullanmak için tekrardan köşe seçmelisin! </center></p>';
+            echo '<p><center><img src="https://i.hizliresim.com/2xumjki.png" width="800" height="275" ></center></p>';
+        } elseif ($kaleci==3 && $oyuncu==1) {
+            #Kaleci SAğda Top Sola
+            echo '<p><b><center>GOOOLL! Kaleciyle Top Ayrı Köşelerde... Bir sonraki atışı kullanmak için tekrardan köşe seçmelisin! </center></p>';
+            echo '<p><center><img src="https://i.hizliresim.com/eomr435.png" width="800" height="275" ></center></p>';
+        } elseif ($kaleci==3 && $oyuncu==2) {
+            #Kaleci Sağda Top Ortada
+            echo '<p><b><center>GOOOLL! Kaleciyle Top Ayrı Köşelerde... Bir sonraki atışı kullanmak için tekrardan köşe seçmelisin! </center></p>';
+            echo '<p><center><img src="https://i.hizliresim.com/c6o4n7n.png" width="800" height="275" ></center></p>';
+        }
+    }
+    ?>
+    <style> 
+        body {background:green;}
+    </style>
+    
+    <form action="" method="post" style="text-align: center" >
+            <input type="hidden" name="_token" value="güvenlik için">
+            <input type="submit" name="sol" value="Sol">
+            <input type="submit" name="orta" value="Orta">
+            <input type="submit" name="sag" value="Sağ">
+    </form>
+         </textarea>
+    </p>
+    </div>
+      
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
